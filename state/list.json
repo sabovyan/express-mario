@@ -1,0 +1,12 @@
+[
+  {
+    "id":1,
+    "textValue": "find the key",
+    "isEdit": false
+  },
+  {
+    "id":2,
+    "textValue": "find info about smth",
+    "isEdit": false
+  }
+]

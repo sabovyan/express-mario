@@ -1,0 +1,49 @@
+.list__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  width: 500px;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.list__item {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 0.1rem;
+  color: #fffa;
+  margin-bottom: 1.5rem;
+}
+
+.list__content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font);
+  font-size: 0.6rem;
+}
+
+.list__buttons {
+  width: 17%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.list__button {
+  width: 20px;
+  fill: #fffe;
+  filter: drop-shadow(0rem 0rem 0.05rem #000c);
+  transition: filter 50ms linear;
+}
+
+.list__button:hover {
+  fill: #fff;
+  filter: drop-shadow(0.1rem -0.1rem 0.1rem #000c);
+}

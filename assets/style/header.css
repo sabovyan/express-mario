@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 1.5rem;
-  font-family: 'Press Start 2P', cursive;
+  font-family: var(--font);
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   background-color: var(--header-bg-color);
