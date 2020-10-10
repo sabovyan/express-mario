@@ -1,0 +1,102 @@
+.form__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 500px;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.form__input {
+  width: 400px;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  font-family: var(--font);
+  letter-spacing: 0.2rem;
+  border: none;
+  outline: none;
+}
+
+.form__submit-button {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: var(--header-bg-color);
+  background-image: url('/assets/images/brick.png');
+  background-size: 50px;
+  color: var(--fg-color);
+  transition: transform 0.2s linear;
+}
+
+.form__submit-button::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 70px;
+  left: 0px;
+  background-image: url(../images/Retro-Mario-icon.png);
+  background-size: 50px;
+  transition: transform 0.1s linear;
+}
+.form__submit-button::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 30px;
+  top: -30px;
+  left: 12px;
+  background-image: url(../images/gold.png);
+  background-size: 25px;
+  opacity: 0;
+}
+
+.form__submit-button:active {
+  background-color: var(--wall-color-dark);
+  color: white;
+  animation: brick-animation 0.2s forwards;
+}
+
+.form__submit-button:active::after {
+  animation: mario-animation 0.2s forwards;
+}
+
+.form__submit-button:active::before {
+  animation: gold-animation 0.4s forwards;
+}
+
+@keyframes brick-animation {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes mario-animation {
+  50% {
+    transform: translate(0, -20px);
+  }
+}
+
+@keyframes gold-animation {
+  0% {
+    transform: translate(0, 0) rotateY(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(0, -20px) rotateY(360deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(0, -20px) rotateY(720deg);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

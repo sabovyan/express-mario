@@ -16,7 +16,7 @@
   font-family: 'Press Start 2P', cursive;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
-  background-color: #e75d10;
+  background-color: var(--header-bg-color);
   color: var(--accent-color);
   text-shadow: 4px 2px 0px black;
 }
