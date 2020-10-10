@@ -1,0 +1,21 @@
+.main__footer {
+  height: 15vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url('/assets/images/ground-brick.png');
+  background-size: 30px;
+}
+.footer__pipe {
+  width: 80px;
+  position: absolute;
+  top: -60px;
+  right: 40px;
+  z-index: -1;
+}
+.footer__hill {
+  position: absolute;
+  top: -93px;
+  left: 20px;
+}
