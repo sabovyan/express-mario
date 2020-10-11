@@ -1,12 +1,1 @@
-[
-  {
-    "id":1,
-    "textValue": "find the key",
-    "isEdit": false
-  },
-  {
-    "id":2,
-    "textValue": "find info about smth",
-    "isEdit": false
-  }
-]
+[{"id":"aa","textValue":"find the key","isEdit":false},{"id":"ab","textValue":"find info about smth","isEdit":false},{"id":1,"textValue":"help me","isEdit":false},{"id":1,"textValue":"add your target","isEdit":false},{"id":1,"textValue":"asdf","isEdit":false}]

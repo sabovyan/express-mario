@@ -2,26 +2,21 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const pug = require('pug');
-
-const list = JSON.parse(fs.readFileSync(path.join(__dirname, '/state/list.json'), 'utf-8'));
-
+const controller = require('./controllers/conotroller')
+const paths = require('./constants/paths');
 
 const app = express();
-
 
 app.set('view engine', 'pug');
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+controller(app)
 
 
-app.get("/", (req, res) => {
-  res.render(path.join(__dirname, '/public/view/index.pug'), {
-    list: list
-  });
-})
+app.delete('/', (req, res) => {});
 
-app.delete('/', (res, req) => {
+app.put('/', (req, res) => {});
 
-})
-
-app.listen(4000, () => console.log('server is running'))
+app.listen(4000, () => console.log('server is running'));

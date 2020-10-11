@@ -1,7 +1,8 @@
 div.form__wrapper
-  form(class="form", action="/", method='')
+  form(class="form", action="/", method="post")
     input(type="text", 
-    aria-label="add your to do item", name="todo-input", 
-    class="form__input", 
+    aria-label="add your to do item", name="todo", autofocus, autocomplete="off"
+    class="form__input", id="todo"
     placeholder="add your to do item")
-    button(type="" class="form__submit-button" aria-label="Submit") 
+    button(type="submit", class="form__submit-button" aria-label="Submit")
+    p.notify
