@@ -8,7 +8,8 @@
   width: 400px;
   font-family: var(--font);
   font-size: 0.7rem;
-  color: #853e18;
+  color: #f3d3b2;
+  text-shadow: 2px 5px 2px black;
   margin-top: 1rem;
   text-transform: uppercase;
 }
