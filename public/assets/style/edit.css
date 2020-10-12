@@ -1,0 +1,72 @@
+body.edit {
+  background: black;
+}
+
+.edit__header {
+  display: flex;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/dark-brick.png);
+  background-size: 30px;
+}
+
+main.edit {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.edit__form {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1rem;
+  justify-content: space-between;
+}
+.edit__input {
+  width: 400px;
+  padding: 1rem;
+  font-family: var(--font);
+  letter-spacing: 0.3rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: black;
+  color: white;
+}
+.edit__submit {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: black;
+  background-image: url('../images/Retro-Mario-icon.png');
+  background-size: 50px;
+}
+.edit__submit:hover {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.edit__error {
+  font-family: var(--font);
+}
+
+.edit__footer {
+  height: 15vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url('../images/dark-brick.png');
+  background-size: 30px;
+}
