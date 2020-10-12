@@ -1,6 +1,10 @@
-const path = require('path');
 const fs = require('fs');
 const PATHS = require('../constants/paths');
+const {
+  findListItemById,
+  setTodItemTextValueById,
+  filterListById,
+} = require('../helper/list.helper');
 
 const generateId = (name) => {
   let id = 0;
@@ -11,22 +15,12 @@ const generateId = (name) => {
 };
 const getId = generateId('todo_');
 
-function getListItemById(list, id) {
-  let res;
-  for (let li of list) {
-    if (li.id === id) {
-      res = li;
-    }
-  }
-  return res;
-}
-
 module.exports = (app) => {
   app.get('/', (req, res) => {
     const list = JSON.parse(fs.readFileSync(PATHS.list, 'utf-8'));
 
     res.render(PATHS.mainView, {
-      list: list,
+      list,
     });
   });
 
@@ -46,31 +40,28 @@ module.exports = (app) => {
   });
 
   app.delete('/:id', (req, res) => {
-    console.log(req.params.id);
     const list = JSON.parse(fs.readFileSync(PATHS.list, 'utf-8'));
-    const newList = list.filter((li) => li.id !== req.params.id);
+    const newList = filterListById(list, req.params.id);
 
     fs.writeFileSync(PATHS.list, JSON.stringify(newList));
     res.end('success');
   });
 
   app.get('/edit', (req, res) => {
-    const id = req.cookies.id;
+    const { id } = req.cookies;
     const list = JSON.parse(fs.readFileSync(PATHS.list, 'utf-8'));
 
-    const listItem = getListItemById(list, id);
-    res.render(path.join(__dirname, '/../view/edit.pug'), {
+    const listItem = findListItemById(list, id);
+    res.render(PATHS.editView, {
       listItem,
     });
   });
   app.post('/edit', (req, res) => {
-    const id = req.cookies.id;
-    const text = req.body.text;
+    const { id } = req.cookies;
+    const { text } = req.body;
     if (text !== '') {
       const list = JSON.parse(fs.readFileSync(PATHS.list, 'utf-8'));
-      const newList = list.map((li) =>
-        li.id === id ? { ...li, textValue: text } : li
-      );
+      const newList = setTodItemTextValueById(list, id, text);
       fs.writeFileSync(PATHS.list, JSON.stringify(newList));
       res.redirect('/');
     }

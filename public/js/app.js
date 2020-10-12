@@ -32,7 +32,7 @@ function setCookie(key, value, hours) {
   const d = new Date();
   d.setTime(d.getTime() + hours * 60 * 60 * 1000);
 
-  const expires = 'expires=' + d.toUTCString();
+  const expires = `expires=${d.toUTCString()}`;
   return `${key}=${value}; ${expires}; path=/`;
 }
 
@@ -48,7 +48,9 @@ deleteButtons.forEach((button) => {
       .then(() => {
         window.location.reload();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        notify.textContent = err.message;
+      });
   });
 });
 
