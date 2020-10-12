@@ -11,6 +11,16 @@ const generateId = (name) => {
 };
 const getId = generateId('todo_');
 
+function getListItemById(list, id) {
+  let res;
+  for (let li of list) {
+    if (li.id === id) {
+      res = li;
+    }
+  }
+  return res;
+}
+
 module.exports = (app) => {
   app.get('/', (req, res) => {
     const list = JSON.parse(fs.readFileSync(PATHS.list, 'utf-8'));
@@ -37,10 +47,32 @@ module.exports = (app) => {
 
   app.delete('/:id', (req, res) => {
     console.log(req.params.id);
-    console.log(res.body);
     const list = JSON.parse(fs.readFileSync(PATHS.list, 'utf-8'));
     const newList = list.filter((li) => li.id !== req.params.id);
+
     fs.writeFileSync(PATHS.list, JSON.stringify(newList));
-    res.redirect('/');
+    res.end('success');
+  });
+
+  app.get('/edit', (req, res) => {
+    const id = req.cookies.id;
+    const list = JSON.parse(fs.readFileSync(PATHS.list, 'utf-8'));
+
+    const listItem = getListItemById(list, id);
+    res.render(path.join(__dirname, '/../view/edit.pug'), {
+      listItem,
+    });
+  });
+  app.post('/edit', (req, res) => {
+    const id = req.cookies.id;
+    const text = req.body.text;
+    if (text !== '') {
+      const list = JSON.parse(fs.readFileSync(PATHS.list, 'utf-8'));
+      const newList = list.map((li) =>
+        li.id === id ? { ...li, textValue: text } : li
+      );
+      fs.writeFileSync(PATHS.list, JSON.stringify(newList));
+      res.redirect('/');
+    }
   });
 };
