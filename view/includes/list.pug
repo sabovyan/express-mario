@@ -6,7 +6,7 @@ div.list__wrapper
           img(src="../../assets/images/mushroom.png", width="20", alt="mushroom pic")
           span=val.textValue
         span.list__buttons
-          a(href=`/${val.id}`, class="list__edit")
+          a(href=`/edit`, data-id=val.id class="list__edit")
             include edit-btn
-          a(href="/", data-id=val.id,  class="list__delete")  
+          a(href=`/${val.id}`, data-id=val.id,  class="list__delete")  
             include del-btn
