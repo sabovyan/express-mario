@@ -1,0 +1,73 @@
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .main__title {
+    width: 100%;
+    padding: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+  }
+  .notify {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .form__input {
+    width: 80%;
+    padding: 0.8rem;
+    letter-spacing: 0.4rem;
+  }
+
+  .form__submit-button {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background-size: 50px;
+  }
+
+  .form__submit-button::after {
+    width: 50px;
+    height: 50px;
+    top: 70px;
+    background-size: 50px;
+  }
+  .list {
+    width: 90%;
+    height: 300px;
+    margin-top: 1.5rem;
+  }
+
+  .list__item {
+    width: 90%;
+    min-width: 280px;
+    letter-spacing: 0.3rem;
+    margin-bottom: 2rem;
+  }
+
+  .list__content {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .list__button {
+    width: 2rem;
+  }
+
+  .main__footer {
+    height: 15vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url('/assets/images/ground-brick.png');
+    background-size: 40px;
+  }
+  .footer__pipe {
+    display: none;
+  }
+  .footer__hill {
+    display: none;
+  }
+}
