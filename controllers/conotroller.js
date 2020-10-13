@@ -30,7 +30,6 @@ module.exports = (app) => {
       const todoItem = {
         id: getId(),
         textValue: req.body.todo,
-        isEdit: false,
       };
 
       list.push(todoItem);
